@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div>商品一覧</div>
+	<table>
+		<tr>
+			<th>店番</th>
+			<th>店名</th>
+			<th>責任者名</th>
+			<th>売上ランク</th>
+		</tr>
+		<tr th:each="shop:${shops}">
+			<td th:text="${shop.no}"></td>
+			<td th:text="${shop.name}"></td>
+			<td th:text="${shop.manager}"></td>
+			<td th:text="${shop.rank}"></td>
+		</tr>
+	</table>
+	<hr>
+	<form action="/country" method="POST">
+	店名:<input type="text" name="name"><br>
+	責任者名:<input type="text" name="manager"><br>
+	売り上げランク:<input type="text" name="rank">
+	<input type="submit" value="登録">
+	</form>
+</body>
+
+</html>
